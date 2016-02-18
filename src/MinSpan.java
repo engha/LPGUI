@@ -17,6 +17,7 @@ public class MinSpan extends javax.swing.JFrame {
      */
     public MinSpan() {
         initComponents();
+        System.out.println();
     }
 
     /**
