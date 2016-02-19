@@ -140,11 +140,21 @@ public class AssignmentMatrix extends javax.swing.JFrame {
                     //System.out.println(inp);
                     cost[i][j] = inp;
                     q++;
+                    System.out.println(q);
             }
         }
         HungarianBipartiteMatching hbm = new HungarianBipartiteMatching(cost);
         int[] result = hbm.execute();
-        AssignmentSoln mfs = new AssignmentSoln(result, this);
+        
+        String message = "";
+        
+        for(int qq=0;qq<result.length;qq++){            
+            
+            message += "The Cost for Worker "+(qq+1)+" is "+ cost[qq][result[qq]]+"\n";
+            
+        }
+                
+        AssignmentSoln mfs = new AssignmentSoln(result, this, message);
         mfs.setVisible(true);
         System.out.println("Bipartite Matching: " + Arrays.toString(result));
         

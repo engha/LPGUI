@@ -23,11 +23,12 @@ public class AssignmentSoln extends javax.swing.JFrame {
      */
     //JPanel matrix = null;
     JFrame frame;
-    public AssignmentSoln(int[] result, JFrame f) {
+    public AssignmentSoln(int[] result, JFrame f, String msg) {
         initComponents();
         answer.setText(Arrays.toString(result) + "");
-        mfsPanel.setLayout(new GridLayout());
-        frame = f;
+        display.setText(msg);
+        //mfsPanel.setLayout(new GridLayout());
+        //frame = f;
     }
 
     /**
@@ -42,7 +43,8 @@ public class AssignmentSoln extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         answer = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        mfsPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        display = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,16 +64,9 @@ public class AssignmentSoln extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout mfsPanelLayout = new javax.swing.GroupLayout(mfsPanel);
-        mfsPanel.setLayout(mfsPanelLayout);
-        mfsPanelLayout.setHorizontalGroup(
-            mfsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        mfsPanelLayout.setVerticalGroup(
-            mfsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        display.setColumns(20);
+        display.setRows(5);
+        jScrollPane1.setViewportView(display);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,13 +76,15 @@ public class AssignmentSoln extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(answer, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
                         .addGap(111, 111, 111))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(mfsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(106, 106, 106)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -98,8 +95,8 @@ public class AssignmentSoln extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mfsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(117, 117, 117))
@@ -145,8 +142,9 @@ public class AssignmentSoln extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField answer;
+    private javax.swing.JTextArea display;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JPanel mfsPanel;
     // End of variables declaration//GEN-END:variables
 }

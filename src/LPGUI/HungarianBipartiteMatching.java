@@ -26,6 +26,7 @@ public class HungarianBipartiteMatching {
     public HungarianBipartiteMatching(double[][] costMatrix)
     {
     this.dim = Math.max(costMatrix.length, costMatrix[0].length);
+    
         this.rows = costMatrix.length;
         this.cols = costMatrix[0].length;
         this.costMatrix = new double[this.dim][this.dim];
@@ -303,6 +304,16 @@ public class HungarianBipartiteMatching {
         HungarianBipartiteMatching hbm = new HungarianBipartiteMatching(cost);
         int[] result = hbm.execute();
         System.out.println("Bipartite Matching: " + Arrays.toString(result));
+        
+        String message = "";
+        
+        for(int q=0;q<result.length;q++){
+            
+            //System.out.println("The Cost for Worker "+(q+1)+" is "+ cost[q][result[q]]);
+            message += "The Cost for Worker "+(q+1)+" is "+ cost[q][result[q]]+"\n";
+            
+        }
+        System.out.println(message);
         sc.close();
     }
     
