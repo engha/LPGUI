@@ -27,6 +27,7 @@ public class AssignmentSoln extends javax.swing.JFrame {
         initComponents();
         answer.setText(Arrays.toString(result) + "");
         display.setText(msg);
+        display.setEditable(false);
         //mfsPanel.setLayout(new GridLayout());
         //frame = f;
     }
