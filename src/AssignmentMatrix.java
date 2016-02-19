@@ -139,8 +139,7 @@ public class AssignmentMatrix extends javax.swing.JFrame {
                 int inp = Integer.parseInt(inputCol.get(q).getText());
                     //System.out.println(inp);
                     cost[i][j] = inp;
-                    q++;
-                    System.out.println(q);
+                    q++;                    
             }
         }
         HungarianBipartiteMatching hbm = new HungarianBipartiteMatching(cost);
